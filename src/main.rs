@@ -42,13 +42,13 @@ struct Target {
 
 fn get_priority_class(prio_str: &str) -> u32 {
     match prio_str.to_lowercase().as_str() {
-        "idle" => IDLE_PRIORITY_CLASS.0 as u32,
-        "below_normal" => BELOW_NORMAL_PRIORITY_CLASS.0 as u32,
-        "normal" => NORMAL_PRIORITY_CLASS.0 as u32,
-        "above_normal" => ABOVE_NORMAL_PRIORITY_CLASS.0 as u32,
-        "high" => HIGH_PRIORITY_CLASS.0 as u32,
-        "realtime" => REALTIME_PRIORITY_CLASS.0 as u32,
-        _ => NORMAL_PRIORITY_CLASS.0 as u32,
+        "idle" => IDLE_PRIORITY_CLASS.0,
+        "below_normal" => BELOW_NORMAL_PRIORITY_CLASS.0,
+        "normal" => NORMAL_PRIORITY_CLASS.0,
+        "above_normal" => ABOVE_NORMAL_PRIORITY_CLASS.0,
+        "high" => HIGH_PRIORITY_CLASS.0,
+        "realtime" => REALTIME_PRIORITY_CLASS.0,
+        _ => NORMAL_PRIORITY_CLASS.0,
     }
 }
 
