@@ -2,6 +2,8 @@
 name = "re_schedule"
 version = "0.1.0"
 edition = "2021"
+license = "GPL-3.0-or-later"
+description = "A Windows process scheduler that adjusts process priorities and affinities based on a configuration file."
 
 [dependencies]
 toml = "0.8"
