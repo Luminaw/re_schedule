@@ -1,0 +1,21 @@
+[package]
+name = "re_schedule"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+toml = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+windows = { version = "0.58.0", features = [
+    "Win32_Foundation",
+    "Win32_System_Threading",
+    "Win32_System_ProcessStatus",
+    "Win32_System_LibraryLoader",
+] }
+
+[profile.release]
+opt-level = 3       # Maximize optimization (default is 3, but good to be explicit)
+lto = "fat"         # Enable "Fat" Link Time Optimization
+codegen-units = 1   # Reduce parallel code generation to enable better global optimization
+panic = "abort"     # Crash immediately on panic (removes unwinding code)
+strip = true        # Strip symbols from binary (reduces size, slightly faster load time)
