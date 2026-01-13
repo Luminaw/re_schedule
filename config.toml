@@ -1,0 +1,24 @@
+# re_schedule configuration
+# Edit this file to add targets: process names to monitor.
+# The program will infinitely loop, checking every 'refresh_interval_secs' for matching processes
+# and set their properties if they differ from the target configuration.
+
+[settings]
+refresh_interval_secs = 5  # Interval in seconds between checks
+
+# targets is an array of tables
+[[targets]]
+name = "notepad.exe"
+priority = "high"         # Options: idle, below_normal, normal, above_normal, high, realtime
+affinity = [0, 1]         # List of 0-based CPU core indices (e.g., [0] for core 0 only)
+io_priority = "normal"    # Options: very_low, low, normal, high, critical
+memory_priority = "normal" # Options: lowest, very_low, low, medium, below_normal, normal
+power_throttling = "disabled" # Options: enabled, disabled
+
+# Add more targets as needed
+[[targets]]
+name = "chrome.exe"
+priority = "above_normal"
+affinity = [0, 2, 4, 6]
+io_priority = "normal"
+power_throttling = "enabled"
